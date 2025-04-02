@@ -82,14 +82,14 @@ func (l *CompliancePlugin) Eval(request *proto.EvalRequest, apiHelper runner.Api
 			}
 
 			subjectAttributeMap := map[string]string{
-				"type":          "aws",
+				"type":          "azure",
 				"service":       "security-group",
 				"instance-id":   *group.ID,
 				"instance-name": *group.Name,
 			}
 			subjects := []*proto.SubjectReference{
 				{
-					Type:       "aws-security-group",
+					Type:       "azure-security-group",
 					Attributes: subjectAttributeMap,
 					Title:      internal.StringAddressed("AWS Security Group"),
 					Props: []*proto.Property{
@@ -130,7 +130,7 @@ func (l *CompliancePlugin) Eval(request *proto.EvalRequest, apiHelper runner.Api
 			}
 			components := []*proto.ComponentReference{
 				{
-					Identifier: "common-components/aws-security-group",
+					Identifier: "common-components/azure-security-group",
 				},
 			}
 
